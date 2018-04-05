@@ -45,6 +45,10 @@ static once_flag atexit_once_flag = ONCE_FLAG_INIT;
 static struct list_head queue_list;
 static mtx_t exit_mutex = _MTX_INITIALIZER_NP;
 
+#ifdef __NX__
+NXThread thread_list[64];
+#endif
+
 static void
 atexit_handler(void)
 {

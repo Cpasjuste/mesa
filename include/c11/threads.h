@@ -64,6 +64,9 @@ enum {
 #include "threads_win32.h"
 #elif defined(HAVE_PTHREAD)
 #include "threads_posix.h"
+#elif defined(__NX__)
+#undef HAVE_PTHREAD
+#include "threads_nx.h"
 #else
 #error Not supported on this platform.
 #endif
